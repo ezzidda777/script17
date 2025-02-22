@@ -10,7 +10,7 @@ local PushRange = 20  -- 파트 생성 후 밀어낼 범위 (단위: 스터디)
 
 -- 마우스 클릭 시 호출되는 함수
 local function onClick()
-    -- 마우스 위치에 파트 생성
+    -- 마우스 클릭 시 화면의 3D 위치를 계산
     local targetPosition = Mouse.Hit.p
 
     -- 파트 생성
@@ -19,6 +19,8 @@ local function onClick()
     part.Position = targetPosition
     part.Anchored = true  -- 파트를 고정
     part.CanCollide = false  -- 충돌 방지
+    part.Transparency = 0.5  -- 투명도 설정 (0은 불투명, 1은 완전 투명)
+    part.BrickColor = BrickColor.new("Bright blue")  -- 색상 설정 (선택 사항)
     part.Parent = workspace
 
     -- 파트 주변 플레이어들을 밀어내는 힘 적용
